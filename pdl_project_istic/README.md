@@ -11,7 +11,7 @@ Dans le cadre de notre formation de Master 1 MIAGE à l'ISTIC, nous avons une UE
 - Marro DIAGANA
 - Yvann LOHOURY (**Chef de projet**)
 #### **Équipe Frontend**
-- Aminata COULIBALY
+- Tiffany COULIBALY
 - Oumou sadio BAH
 - Fleur N'GUESSAN
 
