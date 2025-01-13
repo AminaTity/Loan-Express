@@ -1,0 +1,252 @@
+Index: FrontEnd/app/(ui)/(views)/auth/login/page.tsx
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>'use client'\n\nimport {inter, roboto_mono, prosto_one, dm_sans, raleway, popins, playpen_sans} from './../../../../fonts'\n\nimport Header from \"../../../components/header\";\nimport Logo from \"../../../components/logo\";\nimport Field from \"../../../components/field\";\nimport Dropdown_field from \"../../../components/dropdown_field\";\nimport Link from \"../../../components/link\";\n// @ts-ignore\nimport imageInscrip from \"../../../../../public/imageInscrip.png\";\n// @ts-ignore\nimport Image from \"next/image\";\n// @ts-ignore\nimport {useState} from \"react\";\nimport OptionInscip1 from \"../../../components/optionInscip1\";\nimport OptionInscip2 from \"../../../components/optionInscip2\";\n// Importe la fonction registerUser\nimport { registerUser } from \"@/lib/api\";\n\nexport default function Page() {\n    //const [isStudent, setStudent] = useState<boolean>(false);\n\n    // Ajouter pour le traitement du formulaire\n    // État pour chaque champ\n    const [nom, setNom] = useState(\"\");\n    const [prenoms, setPrenoms] = useState(\"\");\n    const [email, setEmail] = useState(\"\");\n    const [mdp, setMdp] = useState(\"\");\n\n    // État pour profil (étudiant / personnel)\n    const [isStudent, setIsStudent] = useState(false);\n\n    // État pour afficher d’éventuelles erreurs\n    const [errorMessage, setErrorMessage] = useState(\"\");\n\n    // Fonction appelée au clic sur le bouton \"S'inscrire\"\n    const handleSubmit = async () => {\n        setErrorMessage(\"\"); // Réinitialiser les erreurs\n\n        // On peut faire un objet data pour l'envoyer au backend\n        const userData = {\n        username: nom,          // ou autre champ que tu gères côté backend\n        email: email,\n        password: mdp,\n        first_name: prenoms,\n        last_name: nom,\n        is_student: isStudent,  // si tu veux passer l'info\n        };\n\n        try {\n        // Appel API vers l'endpoint Django (ex: http://127.0.0.1:8000/inscription/)\n        const response = await registerUser(userData);\n\n        if (response.status === 201) {\n            // Success -> Rediriger vers une autre page, ou afficher un message\n            alert(\"Inscription réussie !\");\n            // router.push(\"/login\") par exemple\n        }\n        } catch (error) {\n        // Gérer les erreurs (ex: email déjà pris, etc.)\n        if (error.response) {\n            setErrorMessage(error.response.data.detail || \"Erreur inconnue\");\n        } else {\n            setErrorMessage(\"Une erreur s'est produite\");\n        }\n        }\n    };\n\n    return (\n        <div>\n            <Header/>\n            <div className=\"flex flex-col items-center py-7 gap-6 \">\n                <div className=\"flex flex-col gap-2 text-center\">\n                    <p className={`${dm_sans.className} text-3xl font-bold \n                    text-[#112B38]`}>S'inscrire sur LoanExpress</p>\n                    <p className={`${raleway.className} text-base font-medium italic text-green-950`}>\n                        Simplifiez vos démarches et trouvez le financement qui vous correspond</p>\n                </div>\n                <div className=\"flex gap-10 \">\n                    <div className=\"flex flex-col gap-6 \">\n                        <div className=\"flex flex-col gap-2\">\n                            <p className={`${dm_sans.className} text-xl font-bold text-green-950`}>\n                                Informations personnelles</p>\n                            <div className=\"flex gap-7\">\n                                <Field\n                                    label=\"Nom\"\n                                    id=\"nom\"\n                                    type=\"text\" //\n                                    height=\"\"\n                                    textField=\"Entrez votre nom\"\n                                />\n                                <Field\n                                    label=\"Prénoms\"\n                                    id=\"prenoms\"\n                                    type=\"text\" //\n                                    height=\"\"\n                                    textField=\"Entrez votre prénom\"\n                                />\n                            </div>\n\n                            <div className=\"flex gap-7\">\n                                <Field\n                                    label=\"Adresse mail\"\n                                    id=\"mail\"\n                                    type=\"text\"\n                                    height=\"\"\n                                    textField=\"Entrez votre mail\"\n                                />\n                                <Field\n                                    label=\"Mot de passe\"\n                                    id=\"mdp\"\n                                    type=\"text\"\n                                    height=\"\"\n                                    textField=\"Entrez un mot de passe\"\n                                />\n                            </div>\n                        </div>\n\n                        <div className=\"flex flex-col gap-2\">\n                            <p className={`${dm_sans.className} text-xl font-bold text-green-950`}>\n                                Informations professionelles</p>\n                            <p className={`${dm_sans.className} text-xl font-medium text-green-950`}>\n                                Profil</p>\n                            <div className=\"flex gap-10 items-center\">\n                                <div className=\"flex gap-3 items-center\">\n                                    <p className={`${dm_sans.className} text-green-950`}>\n                                        Etudiant</p>\n                                    <input type=\"checkbox\" onChange={() => setIsStudent(true)} checked={isStudent}/>\n                                </div>\n                                <div className=\"flex gap-3 items-center\">\n                                    <p className={`${dm_sans.className} text-green-950`}>\n                                        Personnel</p>\n                                    <input type=\"checkbox\" onChange={() => setIsStudent(false)} checked={!isStudent}/>\n                                </div>\n                            </div>\n\n                            <hr className=\"my-6\"/>\n\n                            {isStudent ? (<OptionInscip1/>) : (<OptionInscip2/>)}\n\n                            {/* Bouton d'inscription */}\n                            <button\n                            className=\"bg-green-600 text-white px-4 py-2 rounded mt-4\"\n                            onClick={handleSubmit}\n                            >\n                            S'inscrire 2\n                            </button>\n\n                        </div>\n\n                        <Link title=\"S'inscrire\" btnVariant=\"btn-less-border\" href=\"#\"/>\n                        \n                    </div>\n                    <div className=\"flex items-center\">\n                        <Image\n                            src={imageInscrip}\n                            alt=\"image\"\n                            width={500}\n                            height={100}\n                        />\n                    </div>\n                </div>\n\n            </div>\n        </div>\n    )\n        ;\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/FrontEnd/app/(ui)/(views)/auth/login/page.tsx b/FrontEnd/app/(ui)/(views)/auth/login/page.tsx
+--- a/FrontEnd/app/(ui)/(views)/auth/login/page.tsx	(revision 7e993915d225f6f023ec5e269a0bced084f0ce6e)
++++ b/FrontEnd/app/(ui)/(views)/auth/login/page.tsx	(date 1735570727505)
+@@ -15,58 +15,9 @@
+ import {useState} from "react";
+ import OptionInscip1 from "../../../components/optionInscip1";
+ import OptionInscip2 from "../../../components/optionInscip2";
+-// Importe la fonction registerUser
+-import { registerUser } from "@/lib/api";
+ 
+ export default function Page() {
+-    //const [isStudent, setStudent] = useState<boolean>(false);
+-
+-    // Ajouter pour le traitement du formulaire
+-    // État pour chaque champ
+-    const [nom, setNom] = useState("");
+-    const [prenoms, setPrenoms] = useState("");
+-    const [email, setEmail] = useState("");
+-    const [mdp, setMdp] = useState("");
+-
+-    // État pour profil (étudiant / personnel)
+-    const [isStudent, setIsStudent] = useState(false);
+-
+-    // État pour afficher d’éventuelles erreurs
+-    const [errorMessage, setErrorMessage] = useState("");
+-
+-    // Fonction appelée au clic sur le bouton "S'inscrire"
+-    const handleSubmit = async () => {
+-        setErrorMessage(""); // Réinitialiser les erreurs
+-
+-        // On peut faire un objet data pour l'envoyer au backend
+-        const userData = {
+-        username: nom,          // ou autre champ que tu gères côté backend
+-        email: email,
+-        password: mdp,
+-        first_name: prenoms,
+-        last_name: nom,
+-        is_student: isStudent,  // si tu veux passer l'info
+-        };
+-
+-        try {
+-        // Appel API vers l'endpoint Django (ex: http://127.0.0.1:8000/inscription/)
+-        const response = await registerUser(userData);
+-
+-        if (response.status === 201) {
+-            // Success -> Rediriger vers une autre page, ou afficher un message
+-            alert("Inscription réussie !");
+-            // router.push("/login") par exemple
+-        }
+-        } catch (error) {
+-        // Gérer les erreurs (ex: email déjà pris, etc.)
+-        if (error.response) {
+-            setErrorMessage(error.response.data.detail || "Erreur inconnue");
+-        } else {
+-            setErrorMessage("Une erreur s'est produite");
+-        }
+-        }
+-    };
+-
++    const [isStudent, setStudent] = useState<boolean>(false);
+     return (
+         <div>
+             <Header/>
+@@ -126,12 +77,12 @@
+                                 <div className="flex gap-3 items-center">
+                                     <p className={`${dm_sans.className} text-green-950`}>
+                                         Etudiant</p>
+-                                    <input type="checkbox" onChange={() => setIsStudent(true)} checked={isStudent}/>
++                                    <input type="checkbox" onChange={() => setStudent(true)} checked={isStudent}/>
+                                 </div>
+                                 <div className="flex gap-3 items-center">
+                                     <p className={`${dm_sans.className} text-green-950`}>
+                                         Personnel</p>
+-                                    <input type="checkbox" onChange={() => setIsStudent(false)} checked={!isStudent}/>
++                                    <input type="checkbox" onChange={() => setStudent(false)} checked={!isStudent}/>
+                                 </div>
+                             </div>
+ 
+@@ -139,18 +90,10 @@
+ 
+                             {isStudent ? (<OptionInscip1/>) : (<OptionInscip2/>)}
+ 
+-                            {/* Bouton d'inscription */}
+-                            <button
+-                            className="bg-green-600 text-white px-4 py-2 rounded mt-4"
+-                            onClick={handleSubmit}
+-                            >
+-                            S'inscrire 2
+-                            </button>
+ 
+                         </div>
+ 
+                         <Link title="S'inscrire" btnVariant="btn-less-border" href="#"/>
+-                        
+                     </div>
+                     <div className="flex items-center">
+                         <Image
+Index: LoanExpress/users/serializers.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>from rest_framework import serializers\nfrom .models import UserRole, Users\nfrom .models import Document\n\n\nclass UtilisateurSerializer(serializers.ModelSerializer):\n    password = serializers.CharField(write_only=True)  # Champ pour le mot de passe\n\n    class Meta:\n        model = Users\n        fields = ['id', 'username', 'email', 'password','profil','adresse', 'niveau', 'parcours','numero_identification','formation',\n                  'poste']\n        extra_kwargs = {'password': {'write_only': True}}  # Le mot de passe ne doit pas être lu\n    def create(self, validated_data):\n        # Utilise set_password pour hasher le mot de passe avant de créer l'utilisateur\n        user = Users(\n            username=validated_data['username'],\n            email=validated_data['email'],\n            profil=validated_data.get('profil', 'ETUDIANT'),\n            niveau=validated_data.get('niveau', 'AUTRE'),\n            parcours=validated_data.get('parcours','null'),\n            formation=validated_data.get('formation','null'),\n            poste=validated_data.get('poste', 'null'),\n            numero_identification=validated_data['numero_identification'],\n            adresse=validated_data.get('adresse','263 Avenue General Leclerc')\n        )\n        user.set_password(validated_data['password'])  # Hashe le mot de passe\n        user.save()  # Sauvegarde l'utilisateur dans la base de données\n        return user\n# class gérer upload de fichiers\nclass UploadSerializer(serializers.ModelSerializer):\n    class Meta:\n        model=Document\n        fields=['piece_identite','certificat_scolarite','contrat_bail','rib','revenus']\n    def create(self, validated_data):\n        # Récupère l'utilisateur de la requête\n        user = self.context['request'].user\n        # Crée un nouveau document en l'associant à l'utilisateur\n        document = Document.objects.create(user=user,**validated_data)\n        return document\n        \n#gerer les roles\nclass RoleSerializer(serializers.ModelSerializer):\n    class Meta:\n        model=UserRole\n        fields=['role']\n    def create(self, validated_data):\n        user = self.context['request'].user  # Récupère l'utilisateur connecté\n        role, created = UserRole.objects.get_or_create(\n            user=user,\n            role=validated_data['role']\n        )\n        if not created:\n            raise serializers.ValidationError(\"Cet utilisateur a déjà ce rôle.\")\n        return role
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/LoanExpress/users/serializers.py b/LoanExpress/users/serializers.py
+--- a/LoanExpress/users/serializers.py	(revision 7e993915d225f6f023ec5e269a0bced084f0ce6e)
++++ b/LoanExpress/users/serializers.py	(date 1735570727507)
+@@ -1,8 +1,6 @@
+ from rest_framework import serializers
+ from .models import UserRole, Users
+ from .models import Document
+-
+-
+ class UtilisateurSerializer(serializers.ModelSerializer):
+     password = serializers.CharField(write_only=True)  # Champ pour le mot de passe
+ 
+Index: FrontEnd/lib/api.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>// lib/api.js\n\n/**\n * Pour une requête GET sur l'API\n */\nexport const fetchData = async () => {\n    try {\n        const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/endpoint`, {\n            method: \"GET\",\n            headers: {\n                \"Content-Type\": \"application/json\",\n            },\n        });\n\n        if (!response.ok) {\n            const errorData = await response.json();\n            throw new Error(errorData.detail || \"Erreur lors de la récupération des données\");\n        }\n\n        return response.json();\n    } catch (error) {\n        console.error(\"Erreur lors de la récupération des données :\", error.message);\n        throw error;\n    }\n};\n\n\n/**\n * Pour une requête POST pour l'inscription sur l'API\n */\nexport const registerUser = async (userData) => {\n    try {\n      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/inscription/`, {\n        method: \"POST\",\n        headers: {\n          \"Content-Type\": \"application/json\",\n        },\n        body: JSON.stringify(userData),\n      });\n  \n      if (!response.ok) {\n        const errorData = await response.json();\n        throw new Error(errorData.detail || \"Erreur lors de l'inscription\");\n      }\n\n      // Si la requête est un succès\n      return response.json();\n    } catch (error) {\n      console.error(\"Erreur lors de l'inscription :\", error.message);\n      throw error;\n    }\n  };
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/FrontEnd/lib/api.js b/FrontEnd/lib/api.js
+--- a/FrontEnd/lib/api.js	(revision 7e993915d225f6f023ec5e269a0bced084f0ce6e)
++++ b/FrontEnd/lib/api.js	(date 1735570727506)
+@@ -1,8 +1,5 @@
+ // lib/api.js
+ 
+-/**
+- * Pour une requête GET sur l'API
+- */
+ export const fetchData = async () => {
+     try {
+         const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/endpoint`, {
+@@ -23,30 +20,3 @@
+         throw error;
+     }
+ };
+-
+-
+-/**
+- * Pour une requête POST pour l'inscription sur l'API
+- */
+-export const registerUser = async (userData) => {
+-    try {
+-      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/inscription/`, {
+-        method: "POST",
+-        headers: {
+-          "Content-Type": "application/json",
+-        },
+-        body: JSON.stringify(userData),
+-      });
+-  
+-      if (!response.ok) {
+-        const errorData = await response.json();
+-        throw new Error(errorData.detail || "Erreur lors de l'inscription");
+-      }
+-
+-      // Si la requête est un succès
+-      return response.json();
+-    } catch (error) {
+-      console.error("Erreur lors de l'inscription :", error.message);
+-      throw error;
+-    }
+-  };
+\ No newline at end of file
+Index: LoanExpress/users/views.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import logging\nfrom urllib import request\nfrom rest_framework.views import APIView\nfrom rest_framework.response import Response\nfrom rest_framework import status\nfrom rest_framework.parsers import MultiPartParser,FormParser\nfrom rest_framework.permissions import AllowAny\nfrom rest_framework import generics\nfrom rest_framework_simplejwt.authentication import JWTAuthentication\nfrom rest_framework.permissions import IsAuthenticated\nfrom rest_framework.views import APIView\nfrom .serializers import RoleSerializer, UploadSerializer, UtilisateurSerializer\nfrom .models import Document, UserRole, Users\nfrom django.contrib.auth import authenticate, login\nfrom django.views.decorators.csrf import csrf_exempt\nfrom django.utils.decorators import method_decorator\nfrom django.contrib.auth import get_user_model\nfrom django.shortcuts import get_object_or_404, render\nimport json\n\n@method_decorator(csrf_exempt, name='dispatch')\n\nclass UtilisateurCreateView(generics.CreateAPIView):\n    queryset = Users.objects.all()\n    serializer_class = UtilisateurSerializer\n    permission_classes = [AllowAny]\n\n# Authentification user\nUser = get_user_model()\n@method_decorator(csrf_exempt, name='dispatch')\nclass LoginView(APIView):\n    permission_classes = [AllowAny]\n\n    def post(self, request):\n        data = json.loads(request.body)\n        email = data.get('email')\n        password = data.get('password')\n        try:\n            user = User.objects.get(email=email)\n            if user.check_password(password):\n                login(request, user)\n                return Response({'message': 'Login successful'}, status=status.HTTP_200_OK)\n            else:\n                return Response({'error': 'Invalid credentials'}, status=status.HTTP_401_UNAUTHORIZED)\n        except User.DoesNotExist:\n            return Response({'error': 'User not found'}, status=status.HTTP_404_NOT_FOUND)\n#upload de fichiers  \n@method_decorator(csrf_exempt, name='dispatch')\nclass VerifyDocument(APIView):\n    serializer_class=UploadSerializer\n    parser_classes=[MultiPartParser, FormParser]\n    permission_classes = [AllowAny]\n    def post(self, request):\n        serializer = self.serializer_class(data=request.data, context={'request': request})\n        if serializer.is_valid():\n            serializer.save()  # Enregistre l'objet en incluant l'utilisateur\n            return Response(serializer.data, status=status.HTTP_201_CREATED)\n        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)\n       \n#recuperer le role du user\n@method_decorator(csrf_exempt, name='dispatch')\nclass Role(APIView):\n    permission_classes = [AllowAny]\n    queryset=UserRole.objects.all()\n    serializer_class=RoleSerializer\n    def post(self, request):\n        serializer = self.serializer_class(data=request.data, context={'request': request})\n        serializer.is_valid(raise_exception=True)\n        serializer.save()\n        return Response(serializer.data)\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/LoanExpress/users/views.py b/LoanExpress/users/views.py
+--- a/LoanExpress/users/views.py	(revision 7e993915d225f6f023ec5e269a0bced084f0ce6e)
++++ b/LoanExpress/users/views.py	(date 1735570727507)
+@@ -17,7 +17,6 @@
+ from django.contrib.auth import get_user_model
+ from django.shortcuts import get_object_or_404, render
+ import json
+-
+ @method_decorator(csrf_exempt, name='dispatch')
+ 
+ class UtilisateurCreateView(generics.CreateAPIView):
+Index: FrontEnd/tsconfig.json
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>{\n  \"compilerOptions\": {\n\n    \"baseUrl\": \".\",\n    \"paths\": {\n      \"@/*\": [\"./*\"]\n    },\n\n    \"target\": \"ES2017\",\n    \"lib\": [\n      \"dom\",\n      \"dom.iterable\",\n      \"esnext\"\n    ],\n    \"allowJs\": true,\n    \"skipLibCheck\": true,\n    \"strict\": false,\n    \"noEmit\": true,\n    \"incremental\": true,\n    \"module\": \"esnext\",\n    \"esModuleInterop\": true,\n    \"moduleResolution\": \"node\",\n    \"resolveJsonModule\": true,\n    \"isolatedModules\": true,\n    \"jsx\": \"preserve\",\n    \"plugins\": [\n      {\n        \"name\": \"next\"\n      }\n    ]\n  },\n  \"include\": [\n    \"next-env.d.ts\",\n    \".next/types/**/*.ts\",\n    \"**/*.ts\",\n    \"**/*.tsx\",\n    \"**/*.js\", \"**/*.jsx\",\n  ],\n  \"exclude\": [\n    \"node_modules\"\n  ]\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/FrontEnd/tsconfig.json b/FrontEnd/tsconfig.json
+--- a/FrontEnd/tsconfig.json	(revision 7e993915d225f6f023ec5e269a0bced084f0ce6e)
++++ b/FrontEnd/tsconfig.json	(date 1735570727506)
+@@ -1,11 +1,5 @@
+ {
+   "compilerOptions": {
+-
+-    "baseUrl": ".",
+-    "paths": {
+-      "@/*": ["./*"]
+-    },
+-
+     "target": "ES2017",
+     "lib": [
+       "dom",
+@@ -33,8 +27,7 @@
+     "next-env.d.ts",
+     ".next/types/**/*.ts",
+     "**/*.ts",
+-    "**/*.tsx",
+-    "**/*.js", "**/*.jsx",
++    "**/*.tsx"
+   ],
+   "exclude": [
+     "node_modules"
+Index: LoanExpress/LoanExpress/settings.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>\"\"\"\nDjango settings for LoanExpress project.\n\nGenerated by 'django-admin startproject' using Django 5.1.2.\n\nFor more information on this file, see\nhttps://docs.djangoproject.com/en/5.1/topics/settings/\n\nFor the full list of settings and their values, see\nhttps://docs.djangoproject.com/en/5.1/ref/settings/\n\"\"\"\n\nfrom pathlib import Path\n\n# Build paths inside the project like this: BASE_DIR / 'subdir'.\nBASE_DIR = Path(__file__).resolve().parent.parent\n\n\n# Quick-start development settings - unsuitable for production\n# See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/\n\n# SECURITY WARNING: keep the secret key used in production secret!\nSECRET_KEY = 'django-insecure-8w62#mu3gfw38^bl24+8urglpl+x*nc0@3u66t*cy&lo)ad5m3'\n\n# SECURITY WARNING: don't run with debug turned on in production!\nDEBUG = True\n\nALLOWED_HOSTS = []\n\n\n# Application definition\n\nINSTALLED_APPS = [\n    'django.contrib.admin',\n    'django.contrib.auth',\n    'django.contrib.contenttypes',\n    'django.contrib.sessions',\n    'django.contrib.messages',\n    'django.contrib.staticfiles',\n    'users',    # Ajout de l'application Users\n    'loans',    # Ajout de l'application loans\n    'invest',   # Ajout de l'application invest\n    'rest_framework',  # Ajout de Django REST Framework\n    'rest_framework_simplejwt',  # Ajout de Django Simple JWT pour l'authentification JWT\n    'corsheaders',\n]\n\nMIDDLEWARE = [\n    'django.middleware.security.SecurityMiddleware',\n    'django.contrib.sessions.middleware.SessionMiddleware',\n    'corsheaders.middleware.CorsMiddleware',\n    'django.middleware.common.CommonMiddleware',\n    'django.middleware.csrf.CsrfViewMiddleware',\n    'django.contrib.auth.middleware.AuthenticationMiddleware',\n    'django.contrib.messages.middleware.MessageMiddleware',\n    'django.middleware.clickjacking.XFrameOptionsMiddleware',\n]\nPASSWORD_HASHERS = [\n    \"django.contrib.auth.hashers.PBKDF2PasswordHasher\",\n    \"django.contrib.auth.hashers.PBKDF2SHA1PasswordHasher\",\n    \"django.contrib.auth.hashers.Argon2PasswordHasher\",\n    \"django.contrib.auth.hashers.BCryptSHA256PasswordHasher\",\n    \"django.contrib.auth.hashers.ScryptPasswordHasher\",\n]\nROOT_URLCONF = 'LoanExpress.urls'\n\nTEMPLATES = [\n    {\n        'BACKEND': 'django.template.backends.django.DjangoTemplates',\n        'DIRS': [],\n        'APP_DIRS': True,\n        'OPTIONS': {\n            'context_processors': [\n                'django.template.context_processors.debug',\n                'django.template.context_processors.request',\n                'django.contrib.auth.context_processors.auth',\n                'django.contrib.messages.context_processors.messages',\n            ],\n        },\n    },\n]\n\nWSGI_APPLICATION = 'LoanExpress.wsgi.application'\n\n# Database\n# https://docs.djangoproject.com/en/5.1/ref/settings/#databases\n\nDATABASES = {\n    'default': {\n        #'ENGINE': 'django.db.backends.sqlite3',\n        #'NAME': BASE_DIR / 'db.sqlite3',\n        'ENGINE': 'django.db.backends.mysql',\n        'NAME': 'db_loanexpress',  # Nom de la base de données créée\n        'USER': 'root',  # Nom d'utilisateur MySQL si différent\n        'PASSWORD': '',  # Mot de passe pour l'utilisateur MySQL\n        'HOST': 'localhost',  # L'hôte de la base de données, souvent 'localhost'\n        'PORT': '3306',  # Port MySQL par défaut, à changer si nécessaire\n    }\n}\nCORS_ALLOWED_ORIGINS = [\n    \"http://localhost:3000\",  # URL du front-end Next.js\n    \n]\n\n\n# Password validation\n# https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators\n\nAUTH_PASSWORD_VALIDATORS = [\n    {\n        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',\n    },\n    {\n        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',\n    },\n    {\n        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',\n    },\n    {\n        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',\n    },\n]\n\nAUTH_USER_MODEL = 'users.Users'\n# Internationalization\n# https://docs.djangoproject.com/en/5.1/topics/i18n/\n\nLANGUAGE_CODE = 'en-us'\n\nTIME_ZONE = 'UTC'\n\nUSE_I18N = True\n\nUSE_TZ = True\n\n#Media files upload\nMEDIA_ROOT = BASE_DIR / 'media'\nMEDIA_URL = '/media/'\n\n\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/5.1/howto/static-files/\n\nSTATIC_URL = 'static/'\n\n# Default primary key field type\n# https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field\n\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'\n\n# Definition des configurations de base de Django Rest Framework\nREST_FRAMEWORK = {\n    'DEFAULT_AUTHENTICATION_CLASSES': [\n        #'rest_framework.authentication.SessionAuthentication',\n        #'rest_framework.authentication.BasicAuthentication',\n        'rest_framework_simplejwt.authentication.JWTAuthentication',\n    ],\n    'DEFAULT_PERMISSION_CLASSES': [\n        'rest_framework.permissions.IsAuthenticated',  # Définit que l'authentification est nécessaire par défaut\n        \n    ],\n    'DEFAULT_PARSER_CLASSES': [\n        'rest_framework.parsers.JSONParser',\n        'rest_framework.parsers.MultiPartParser',\n        'rest_framework.parsers.FormParser',\n    ]\n\n}\n\n\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/LoanExpress/LoanExpress/settings.py b/LoanExpress/LoanExpress/settings.py
+--- a/LoanExpress/LoanExpress/settings.py	(revision 7e993915d225f6f023ec5e269a0bced084f0ce6e)
++++ b/LoanExpress/LoanExpress/settings.py	(date 1735570727507)
+@@ -42,7 +42,7 @@
+     'invest',   # Ajout de l'application invest
+     'rest_framework',  # Ajout de Django REST Framework
+     'rest_framework_simplejwt',  # Ajout de Django Simple JWT pour l'authentification JWT
+-    'corsheaders',
++     "corsheaders",
+ ]
+ 
+ MIDDLEWARE = [
+@@ -98,7 +98,7 @@
+     }
+ }
+ CORS_ALLOWED_ORIGINS = [
+-    "http://localhost:3000",  # URL du front-end Next.js
++    "http://localhost:3000",  # URL de votre front-end Next.js
+     
+ ]
+ 

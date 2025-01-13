@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="123d65e0-386f-457d-8e6c-67c7e6753cb0" name="Changes" comment="modification du dashboard admin">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FrontEnd/app/(ui)/components/RecentAdmin.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/app/(ui)/components/RecentAdmin.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FrontEnd/app/global.css" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/app/global.css" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="TypeScript JSX File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="yvann" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 3
+}</component>
+  <component name="ProjectId" id="2nXKEVlQHGFOzN81UAS3B7ZsR2z" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;fleur&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/fleurmac/Documents/pdl_project_istic_s1/FrontEnd/app/(ui)/(views)/loan/statistiquesEmprunteur/doc&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;show.migrate.to.gradle.popup&quot;: &quot;false&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/Users/fleurmac/Documents/pdl_project_istic_s1/FrontEnd/node_modules/typescript/lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/FrontEnd/app/(ui)/(views)/loan/statistiquesEmprunteur/doc" />
+      <recent name="$PROJECT_DIR$/FrontEnd/app/(ui)/(views)/dashboard/documentAdmin" />
+      <recent name="$PROJECT_DIR$/FrontEnd/app/(ui)/(views)/dashboard/documentsEmprunteur" />
+      <recent name="$PROJECT_DIR$/FrontEnd/app/(ui)/(views)/dashboard/administrateur" />
+      <recent name="$PROJECT_DIR$/FrontEnd/app/(ui)/(views)/auth/signup" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/FrontEnd/app/(ui)/(views)/loan/statistiquesEmprunteur" />
+      <recent name="$PROJECT_DIR$/FrontEnd/app/(ui)/(views)/dashboard/documents" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="pdl_project_istic_s1" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="pdl_project_istic_s1" />
+      <option name="filePath" />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-fdfe4dae3a2d-intellij.indexing.shared.core-IU-243.22562.218" />
+        <option value="bundled-js-predefined-d6986cc7102b-deb605915726-JavaScript-IU-243.22562.218" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="123d65e0-386f-457d-8e6c-67c7e6753cb0" name="Changes" comment="" />
+      <created>1729113871830</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1729113871830</updated>
+      <workItem from="1729113873824" duration="23000" />
+      <workItem from="1735824328750" duration="30497000" />
+    </task>
+    <task id="LOCAL-00001" summary="Ajout d'un .gitignore">
+      <option name="closed" value="true" />
+      <created>1735569258823</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1735569258824</updated>
+    </task>
+    <task id="LOCAL-00002" summary="modification dans l'inscription">
+      <option name="closed" value="true" />
+      <created>1735849495264</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1735849495264</updated>
+    </task>
+    <task id="LOCAL-00003" summary="modification des formulaires investir et emprunter">
+      <option name="closed" value="true" />
+      <created>1735855123756</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1735855123756</updated>
+    </task>
+    <task id="LOCAL-00004" summary="modification des formulaire invest et borrow">
+      <option name="closed" value="true" />
+      <created>1735913307990</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1735913307990</updated>
+    </task>
+    <task id="LOCAL-00005" summary="modification du FrontEnd">
+      <option name="closed" value="true" />
+      <created>1736018880177</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1736018880177</updated>
+    </task>
+    <task id="LOCAL-00006" summary="modification du dashboard admin">
+      <option name="closed" value="true" />
+      <created>1736173988654</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1736173988654</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Ajout d'un .gitignore" />
+    <MESSAGE value="modification dans l'inscription" />
+    <MESSAGE value="modification des formulaires investir et emprunter" />
+    <MESSAGE value="modification des formulaire invest et borrow" />
+    <MESSAGE value="modification du FrontEnd" />
+    <MESSAGE value="modification du dashboard admin" />
+    <option name="LAST_COMMIT_MESSAGE" value="modification du dashboard admin" />
+  </component>
+</project>

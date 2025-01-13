@@ -1,0 +1,106 @@
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project version=\"4\">\n  <component name=\"AutoImportSettings\">\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\n  </component>\n  <component name=\"ChangeListManager\">\n    <list default=\"true\" id=\"123d65e0-386f-457d-8e6c-67c7e6753cb0\" name=\"Changes\" comment=\"modification des formulaires investir et emprunter\">\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/LoanExpress/users/serializers.py\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/LoanExpress/users/serializers.py\" afterDir=\"false\" />\n    </list>\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\n  </component>\n  <component name=\"FileTemplateManagerImpl\">\n    <option name=\"RECENT_TEMPLATES\">\n      <list>\n        <option value=\"TypeScript JSX File\" />\n      </list>\n    </option>\n  </component>\n  <component name=\"Git.Settings\">\n    <option name=\"RECENT_BRANCH_BY_REPOSITORY\">\n      <map>\n        <entry key=\"$PROJECT_DIR$\" value=\"dev\" />\n      </map>\n    </option>\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\n  </component>\n  <component name=\"ProjectColorInfo\">{\n  &quot;customColor&quot;: &quot;&quot;,\n  &quot;associatedIndex&quot;: 3\n}</component>\n  <component name=\"ProjectId\" id=\"2nXKEVlQHGFOzN81UAS3B7ZsR2z\" />\n  <component name=\"ProjectViewState\">\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\n    <option name=\"showLibraryContents\" value=\"true\" />\n  </component>\n  <component name=\"PropertiesComponent\">{\n  &quot;keyToString&quot;: {\n    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,\n    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,\n    &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,\n    &quot;git-widget-placeholder&quot;: &quot;fleur&quot;,\n    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,\n    &quot;last_opened_file_path&quot;: &quot;/Users/fleurmac/Documents/pdl_project_istic_s1/FrontEnd/app/(ui)/(views)/auth/signup&quot;,\n    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,\n    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,\n    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,\n    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,\n    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,\n    &quot;show.migrate.to.gradle.popup&quot;: &quot;false&quot;,\n    &quot;ts.external.directory.path&quot;: &quot;/Users/fleurmac/Documents/pdl_project_istic_s1/FrontEnd/node_modules/typescript/lib&quot;,\n    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;\n  }\n}</component>\n  <component name=\"RecentsManager\">\n    <key name=\"CopyFile.RECENT_KEYS\">\n      <recent name=\"$PROJECT_DIR$/FrontEnd/app/(ui)/(views)/auth/signup\" />\n    </key>\n  </component>\n  <component name=\"RunManager\">\n    <configuration default=\"true\" type=\"JetRunConfigurationType\">\n      <module name=\"pdl_project_istic_s1\" />\n      <method v=\"2\">\n        <option name=\"Make\" enabled=\"true\" />\n      </method>\n    </configuration>\n    <configuration default=\"true\" type=\"KotlinStandaloneScriptRunConfigurationType\">\n      <module name=\"pdl_project_istic_s1\" />\n      <option name=\"filePath\" />\n      <method v=\"2\" />\n    </configuration>\n  </component>\n  <component name=\"SharedIndexes\">\n    <attachedChunks>\n      <set>\n        <option value=\"bundled-jdk-9823dce3aa75-fdfe4dae3a2d-intellij.indexing.shared.core-IU-243.22562.218\" />\n        <option value=\"bundled-js-predefined-d6986cc7102b-deb605915726-JavaScript-IU-243.22562.218\" />\n      </set>\n    </attachedChunks>\n  </component>\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\n  <component name=\"TaskManager\">\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\n      <changelist id=\"123d65e0-386f-457d-8e6c-67c7e6753cb0\" name=\"Changes\" comment=\"\" />\n      <created>1729113871830</created>\n      <option name=\"number\" value=\"Default\" />\n      <option name=\"presentableId\" value=\"Default\" />\n      <updated>1729113871830</updated>\n      <workItem from=\"1729113873824\" duration=\"23000\" />\n      <workItem from=\"1735824328750\" duration=\"30497000\" />\n    </task>\n    <task id=\"LOCAL-00001\" summary=\"Ajout d'un .gitignore\">\n      <option name=\"closed\" value=\"true\" />\n      <created>1735569258823</created>\n      <option name=\"number\" value=\"00001\" />\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1735569258824</updated>\n    </task>\n    <task id=\"LOCAL-00002\" summary=\"modification dans l'inscription\">\n      <option name=\"closed\" value=\"true\" />\n      <created>1735849495264</created>\n      <option name=\"number\" value=\"00002\" />\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1735849495264</updated>\n    </task>\n    <task id=\"LOCAL-00003\" summary=\"modification des formulaires investir et emprunter\">\n      <option name=\"closed\" value=\"true\" />\n      <created>1735855123756</created>\n      <option name=\"number\" value=\"00003\" />\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1735855123756</updated>\n    </task>\n    <option name=\"localTasksCounter\" value=\"4\" />\n    <servers />\n  </component>\n  <component name=\"TypeScriptGeneratedFilesManager\">\n    <option name=\"version\" value=\"3\" />\n  </component>\n  <component name=\"VcsManagerConfiguration\">\n    <MESSAGE value=\"Ajout d'un .gitignore\" />\n    <MESSAGE value=\"modification dans l'inscription\" />\n    <MESSAGE value=\"modification des formulaires investir et emprunter\" />\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"modification des formulaires investir et emprunter\" />\n  </component>\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 1cba15269506f3f06e4d0914de9909bd0a0631b6)
++++ b/.idea/workspace.xml	(date 1735905808057)
+@@ -4,9 +4,15 @@
+     <option name="autoReloadType" value="SELECTIVE" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="123d65e0-386f-457d-8e6c-67c7e6753cb0" name="Changes" comment="modification des formulaires investir et emprunter">
++    <list default="true" id="123d65e0-386f-457d-8e6c-67c7e6753cb0" name="Changes" comment="modification dans l'inscription">
++      <change afterPath="$PROJECT_DIR$/FrontEnd/app/(ui)/(views)/auth/signup/page.tsx" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/LoanExpress/users/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/LoanExpress/users/serializers.py" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/FrontEnd/app/(ui)/(views)/auth/login/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/app/(ui)/(views)/auth/login/page.tsx" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/FrontEnd/app/(ui)/(views)/loan/borrow/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/app/(ui)/(views)/loan/borrow/page.tsx" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/FrontEnd/app/(ui)/(views)/loan/lend/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/app/(ui)/(views)/loan/lend/page.tsx" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/FrontEnd/app/(ui)/components/dropdown_field.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/app/(ui)/components/dropdown_field.tsx" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/FrontEnd/app/(ui)/components/header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/app/(ui)/components/header.tsx" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/FrontEnd/app/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/app/page.tsx" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -37,24 +43,24 @@
+     <option name="hideEmptyMiddlePackages" value="true" />
+     <option name="showLibraryContents" value="true" />
+   </component>
+-  <component name="PropertiesComponent">{
+-  &quot;keyToString&quot;: {
+-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+-    &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
+-    &quot;git-widget-placeholder&quot;: &quot;fleur&quot;,
+-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+-    &quot;last_opened_file_path&quot;: &quot;/Users/fleurmac/Documents/pdl_project_istic_s1/FrontEnd/app/(ui)/(views)/auth/signup&quot;,
+-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+-    &quot;show.migrate.to.gradle.popup&quot;: &quot;false&quot;,
+-    &quot;ts.external.directory.path&quot;: &quot;/Users/fleurmac/Documents/pdl_project_istic_s1/FrontEnd/node_modules/typescript/lib&quot;,
+-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
++  <component name="PropertiesComponent"><![CDATA[{
++  "keyToString": {
++    "RunOnceActivity.ShowReadmeOnStart": "true",
++    "RunOnceActivity.git.unshallow": "true",
++    "dart.analysis.tool.window.visible": "false",
++    "git-widget-placeholder": "fleur",
++    "kotlin-language-version-configured": "true",
++    "last_opened_file_path": "/Users/fleurmac/Documents/pdl_project_istic_s1/FrontEnd/app/(ui)/(views)/auth/signup",
++    "node.js.detected.package.eslint": "true",
++    "node.js.detected.package.tslint": "true",
++    "node.js.selected.package.eslint": "(autodetect)",
++    "node.js.selected.package.tslint": "(autodetect)",
++    "nodejs_package_manager_path": "npm",
++    "show.migrate.to.gradle.popup": "false",
++    "ts.external.directory.path": "/Users/fleurmac/Documents/pdl_project_istic_s1/FrontEnd/node_modules/typescript/lib",
++    "vue.rearranger.settings.migration": "true"
+   }
+-}</component>
++}]]></component>
+   <component name="RecentsManager">
+     <key name="CopyFile.RECENT_KEYS">
+       <recent name="$PROJECT_DIR$/FrontEnd/app/(ui)/(views)/auth/signup" />
+@@ -90,7 +96,7 @@
+       <option name="presentableId" value="Default" />
+       <updated>1729113871830</updated>
+       <workItem from="1729113873824" duration="23000" />
+-      <workItem from="1735824328750" duration="30497000" />
++      <workItem from="1735824328750" duration="27075000" />
+     </task>
+     <task id="LOCAL-00001" summary="Ajout d'un .gitignore">
+       <option name="closed" value="true" />
+@@ -108,15 +114,7 @@
+       <option name="project" value="LOCAL" />
+       <updated>1735849495264</updated>
+     </task>
+-    <task id="LOCAL-00003" summary="modification des formulaires investir et emprunter">
+-      <option name="closed" value="true" />
+-      <created>1735855123756</created>
+-      <option name="number" value="00003" />
+-      <option name="presentableId" value="LOCAL-00003" />
+-      <option name="project" value="LOCAL" />
+-      <updated>1735855123756</updated>
+-    </task>
+-    <option name="localTasksCounter" value="4" />
++    <option name="localTasksCounter" value="3" />
+     <servers />
+   </component>
+   <component name="TypeScriptGeneratedFilesManager">
+@@ -125,7 +123,6 @@
+   <component name="VcsManagerConfiguration">
+     <MESSAGE value="Ajout d'un .gitignore" />
+     <MESSAGE value="modification dans l'inscription" />
+-    <MESSAGE value="modification des formulaires investir et emprunter" />
+-    <option name="LAST_COMMIT_MESSAGE" value="modification des formulaires investir et emprunter" />
++    <option name="LAST_COMMIT_MESSAGE" value="modification dans l'inscription" />
+   </component>
+ </project>
+\ No newline at end of file

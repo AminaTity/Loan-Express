@@ -1,0 +1,40 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+
+    .btn {
+        @apply py-2 px-4 rounded-full bg-green-500 text-black text-center  hover:bg-green-800 hover:text-green-500 transition duration-300;
+    }
+
+    .btn-no-fill {
+        @apply bg-transparent text-white border-white/40 hover:bg-white/40 hover:text-white;
+    }
+
+    .btn-no-fill-no-stroke {
+        @apply bg-transparent text-white border-black hover:text-gray-400 hover:bg-black/40 ;
+    }
+
+    .btn-no-fill-gray {
+        @apply bg-transparent text-gray-500 border-gray-600 hover:bg-white/40 hover:text-white;
+    }
+
+    .btn-less-border {
+        @apply text-white text-lg rounded-xl hover:bg-white/40 hover:text-green-500 px-28;
+    }
+
+    .btn-less-border2 {
+        @apply text-white text-lg rounded-xl hover:bg-white/40 hover:text-green-500 px-20;
+    }
+
+    .react-calendar {
+        width: 750px;
+        max-width: 100%;
+        background: white;
+        border: 1px solid #a0a096;
+        font-family: 'Arial', 'Helvetica', sans-serif;
+        line-height: 2.7em;
+    }
+
+}

@@ -1,0 +1,162 @@
+Index: LoanExpress/users/serializers.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>from rest_framework import serializers\nfrom .models import UserRole, Users\nfrom .models import Document\n\n\nclass UtilisateurSerializer(serializers.ModelSerializer):\n    password = serializers.CharField(write_only=True)  # Champ pour le mot de passe\n\n    class Meta:\n        model = Users\n        fields = ['id', 'username', 'email', 'password','profil','adresse', 'niveau', 'parcours','numero_identification','formation',\n                  'poste']\n        extra_kwargs = {'password': {'write_only': True}}  # Le mot de passe ne doit pas être lu\n    def create(self, validated_data):\n        # Utilise set_password pour hasher le mot de passe avant de créer l'utilisateur\n        user = Users(\n            username=validated_data['username'],\n            email=validated_data['email'],\n            profil=validated_data.get('profil', 'ETUDIANT'),\n            niveau=validated_data.get('niveau', 'AUTRE'),\n            parcours=validated_data.get('parcours','null'),\n            formation=validated_data.get('formation','null'),\n            poste=validated_data.get('poste', 'null'),\n            numero_identification=validated_data['numero_identification'],\n            adresse=validated_data.get('adresse','263 Avenue General Leclerc')\n        )\n        user.set_password(validated_data['password'])  # Hashe le mot de passe\n        user.save()  # Sauvegarde l'utilisateur dans la base de données\n        return user\n# class gérer upload de fichiers\nclass UploadSerializer(serializers.ModelSerializer):\n    class Meta:\n        model=Document\n        fields=['piece_identite','certificat_scolarite','contrat_bail','rib','revenus']\n    def create(self, validated_data):\n        # Récupère l'utilisateur de la requête\n        user = self.context['request'].user\n        # Crée un nouveau document en l'associant à l'utilisateur\n        document = Document.objects.create(user=user,**validated_data)\n        return document\n        \n#gerer les roles\nclass RoleSerializer(serializers.ModelSerializer):\n    class Meta:\n        model=UserRole\n        fields=['role']\n    def create(self, validated_data):\n        user = self.context['request'].user  # Récupère l'utilisateur connecté\n        role, created = UserRole.objects.get_or_create(\n            user=user,\n            role=validated_data['role']\n        )\n        if not created:\n            raise serializers.ValidationError(\"Cet utilisateur a déjà ce rôle.\")\n        return role
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/LoanExpress/users/serializers.py b/LoanExpress/users/serializers.py
+--- a/LoanExpress/users/serializers.py	(revision 98e6dbd163adec1ad6a38ae6adf1c88e32a51434)
++++ b/LoanExpress/users/serializers.py	(date 1735871927506)
+@@ -1,5 +1,6 @@
+ from rest_framework import serializers
+ from .models import UserRole, Users
++
+ from .models import Document
+ 
+ 
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project version=\"4\">\n  <component name=\"AutoImportSettings\">\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\n  </component>\n  <component name=\"ChangeListManager\">\n    <list default=\"true\" id=\"123d65e0-386f-457d-8e6c-67c7e6753cb0\" name=\"Changes\" comment=\"modification des formulaires investir et emprunter\">\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/FrontEnd/app/(ui)/(views)/auth/signup/page.tsx\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/FrontEnd/app/(ui)/(views)/auth/signup/page.tsx\" afterDir=\"false\" />\n    </list>\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\n  </component>\n  <component name=\"FileTemplateManagerImpl\">\n    <option name=\"RECENT_TEMPLATES\">\n      <list>\n        <option value=\"TypeScript JSX File\" />\n      </list>\n    </option>\n  </component>\n  <component name=\"Git.Settings\">\n    <option name=\"RECENT_BRANCH_BY_REPOSITORY\">\n      <map>\n        <entry key=\"$PROJECT_DIR$\" value=\"dev\" />\n      </map>\n    </option>\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\n  </component>\n  <component name=\"ProjectColorInfo\">{\n  &quot;customColor&quot;: &quot;&quot;,\n  &quot;associatedIndex&quot;: 3\n}</component>\n  <component name=\"ProjectId\" id=\"2nXKEVlQHGFOzN81UAS3B7ZsR2z\" />\n  <component name=\"ProjectViewState\">\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\n    <option name=\"showLibraryContents\" value=\"true\" />\n  </component>\n  <component name=\"PropertiesComponent\"><![CDATA[{\n  \"keyToString\": {\n    \"RunOnceActivity.ShowReadmeOnStart\": \"true\",\n    \"RunOnceActivity.git.unshallow\": \"true\",\n    \"dart.analysis.tool.window.visible\": \"false\",\n    \"git-widget-placeholder\": \"fleur\",\n    \"kotlin-language-version-configured\": \"true\",\n    \"last_opened_file_path\": \"/Users/fleurmac/Documents/pdl_project_istic_s1/FrontEnd/app/(ui)/(views)/auth/signup\",\n    \"node.js.detected.package.eslint\": \"true\",\n    \"node.js.detected.package.tslint\": \"true\",\n    \"node.js.selected.package.eslint\": \"(autodetect)\",\n    \"node.js.selected.package.tslint\": \"(autodetect)\",\n    \"nodejs_package_manager_path\": \"npm\",\n    \"show.migrate.to.gradle.popup\": \"false\",\n    \"ts.external.directory.path\": \"/Users/fleurmac/Documents/pdl_project_istic_s1/FrontEnd/node_modules/typescript/lib\",\n    \"vue.rearranger.settings.migration\": \"true\"\n  }\n}]]></component>\n  <component name=\"RecentsManager\">\n    <key name=\"CopyFile.RECENT_KEYS\">\n      <recent name=\"$PROJECT_DIR$/FrontEnd/app/(ui)/(views)/auth/signup\" />\n    </key>\n  </component>\n  <component name=\"RunManager\">\n    <configuration default=\"true\" type=\"JetRunConfigurationType\">\n      <module name=\"pdl_project_istic_s1\" />\n      <method v=\"2\">\n        <option name=\"Make\" enabled=\"true\" />\n      </method>\n    </configuration>\n    <configuration default=\"true\" type=\"KotlinStandaloneScriptRunConfigurationType\">\n      <module name=\"pdl_project_istic_s1\" />\n      <option name=\"filePath\" />\n      <method v=\"2\" />\n    </configuration>\n  </component>\n  <component name=\"SharedIndexes\">\n    <attachedChunks>\n      <set>\n        <option value=\"bundled-jdk-9823dce3aa75-fdfe4dae3a2d-intellij.indexing.shared.core-IU-243.22562.218\" />\n        <option value=\"bundled-js-predefined-d6986cc7102b-deb605915726-JavaScript-IU-243.22562.218\" />\n      </set>\n    </attachedChunks>\n  </component>\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\n  <component name=\"TaskManager\">\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\n      <changelist id=\"123d65e0-386f-457d-8e6c-67c7e6753cb0\" name=\"Changes\" comment=\"\" />\n      <created>1729113871830</created>\n      <option name=\"number\" value=\"Default\" />\n      <option name=\"presentableId\" value=\"Default\" />\n      <updated>1729113871830</updated>\n      <workItem from=\"1729113873824\" duration=\"23000\" />\n      <workItem from=\"1735824328750\" duration=\"30497000\" />\n    </task>\n    <task id=\"LOCAL-00001\" summary=\"Ajout d'un .gitignore\">\n      <option name=\"closed\" value=\"true\" />\n      <created>1735569258823</created>\n      <option name=\"number\" value=\"00001\" />\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1735569258824</updated>\n    </task>\n    <task id=\"LOCAL-00002\" summary=\"modification dans l'inscription\">\n      <option name=\"closed\" value=\"true\" />\n      <created>1735849495264</created>\n      <option name=\"number\" value=\"00002\" />\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1735849495264</updated>\n    </task>\n    <task id=\"LOCAL-00003\" summary=\"modification des formulaires investir et emprunter\">\n      <option name=\"closed\" value=\"true\" />\n      <created>1735855123756</created>\n      <option name=\"number\" value=\"00003\" />\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1735855123756</updated>\n    </task>\n    <option name=\"localTasksCounter\" value=\"4\" />\n    <servers />\n  </component>\n  <component name=\"TypeScriptGeneratedFilesManager\">\n    <option name=\"version\" value=\"3\" />\n  </component>\n  <component name=\"VcsManagerConfiguration\">\n    <MESSAGE value=\"Ajout d'un .gitignore\" />\n    <MESSAGE value=\"modification dans l'inscription\" />\n    <MESSAGE value=\"modification des formulaires investir et emprunter\" />\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"modification des formulaires investir et emprunter\" />\n  </component>\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 98e6dbd163adec1ad6a38ae6adf1c88e32a51434)
++++ b/.idea/workspace.xml	(date 1735871639748)
+@@ -1,37 +1,19 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <project version="4">
+-  <component name="AutoImportSettings">
+-    <option name="autoReloadType" value="SELECTIVE" />
+-  </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="123d65e0-386f-457d-8e6c-67c7e6753cb0" name="Changes" comment="modification des formulaires investir et emprunter">
+-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/FrontEnd/app/(ui)/(views)/auth/signup/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/app/(ui)/(views)/auth/signup/page.tsx" afterDir="false" />
+-    </list>
++    <list default="true" id="123d65e0-386f-457d-8e6c-67c7e6753cb0" name="Changes" comment="" />
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+     <option name="LAST_RESOLUTION" value="IGNORE" />
+   </component>
+-  <component name="FileTemplateManagerImpl">
+-    <option name="RECENT_TEMPLATES">
+-      <list>
+-        <option value="TypeScript JSX File" />
+-      </list>
+-    </option>
+-  </component>
+   <component name="Git.Settings">
+-    <option name="RECENT_BRANCH_BY_REPOSITORY">
+-      <map>
+-        <entry key="$PROJECT_DIR$" value="dev" />
+-      </map>
+-    </option>
+     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+   </component>
+-  <component name="ProjectColorInfo">{
+-  &quot;customColor&quot;: &quot;&quot;,
+-  &quot;associatedIndex&quot;: 3
+-}</component>
++  <component name="ProjectColorInfo"><![CDATA[{
++  "customColor": "",
++  "associatedIndex": 3
++}]]></component>
+   <component name="ProjectId" id="2nXKEVlQHGFOzN81UAS3B7ZsR2z" />
+   <component name="ProjectViewState">
+     <option name="hideEmptyMiddlePackages" value="true" />
+@@ -40,44 +22,17 @@
+   <component name="PropertiesComponent"><![CDATA[{
+   "keyToString": {
+     "RunOnceActivity.ShowReadmeOnStart": "true",
+-    "RunOnceActivity.git.unshallow": "true",
+-    "dart.analysis.tool.window.visible": "false",
+-    "git-widget-placeholder": "fleur",
++    "git-widget-placeholder": "main",
+     "kotlin-language-version-configured": "true",
+-    "last_opened_file_path": "/Users/fleurmac/Documents/pdl_project_istic_s1/FrontEnd/app/(ui)/(views)/auth/signup",
+-    "node.js.detected.package.eslint": "true",
+-    "node.js.detected.package.tslint": "true",
+-    "node.js.selected.package.eslint": "(autodetect)",
+-    "node.js.selected.package.tslint": "(autodetect)",
+     "nodejs_package_manager_path": "npm",
+-    "show.migrate.to.gradle.popup": "false",
+-    "ts.external.directory.path": "/Users/fleurmac/Documents/pdl_project_istic_s1/FrontEnd/node_modules/typescript/lib",
+     "vue.rearranger.settings.migration": "true"
+   }
+ }]]></component>
+-  <component name="RecentsManager">
+-    <key name="CopyFile.RECENT_KEYS">
+-      <recent name="$PROJECT_DIR$/FrontEnd/app/(ui)/(views)/auth/signup" />
+-    </key>
+-  </component>
+-  <component name="RunManager">
+-    <configuration default="true" type="JetRunConfigurationType">
+-      <module name="pdl_project_istic_s1" />
+-      <method v="2">
+-        <option name="Make" enabled="true" />
+-      </method>
+-    </configuration>
+-    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+-      <module name="pdl_project_istic_s1" />
+-      <option name="filePath" />
+-      <method v="2" />
+-    </configuration>
+-  </component>
+   <component name="SharedIndexes">
+     <attachedChunks>
+       <set>
+-        <option value="bundled-jdk-9823dce3aa75-fdfe4dae3a2d-intellij.indexing.shared.core-IU-243.22562.218" />
+-        <option value="bundled-js-predefined-d6986cc7102b-deb605915726-JavaScript-IU-243.22562.218" />
++        <option value="bundled-jdk-9823dce3aa75-b114ca120d71-intellij.indexing.shared.core-IU-242.21829.142" />
++        <option value="bundled-js-predefined-d6986cc7102b-7c0b70fcd90d-JavaScript-IU-242.21829.142" />
+       </set>
+     </attachedChunks>
+   </component>
+@@ -90,42 +45,10 @@
+       <option name="presentableId" value="Default" />
+       <updated>1729113871830</updated>
+       <workItem from="1729113873824" duration="23000" />
+-      <workItem from="1735824328750" duration="30497000" />
+     </task>
+-    <task id="LOCAL-00001" summary="Ajout d'un .gitignore">
+-      <option name="closed" value="true" />
+-      <created>1735569258823</created>
+-      <option name="number" value="00001" />
+-      <option name="presentableId" value="LOCAL-00001" />
+-      <option name="project" value="LOCAL" />
+-      <updated>1735569258824</updated>
+-    </task>
+-    <task id="LOCAL-00002" summary="modification dans l'inscription">
+-      <option name="closed" value="true" />
+-      <created>1735849495264</created>
+-      <option name="number" value="00002" />
+-      <option name="presentableId" value="LOCAL-00002" />
+-      <option name="project" value="LOCAL" />
+-      <updated>1735849495264</updated>
+-    </task>
+-    <task id="LOCAL-00003" summary="modification des formulaires investir et emprunter">
+-      <option name="closed" value="true" />
+-      <created>1735855123756</created>
+-      <option name="number" value="00003" />
+-      <option name="presentableId" value="LOCAL-00003" />
+-      <option name="project" value="LOCAL" />
+-      <updated>1735855123756</updated>
+-    </task>
+-    <option name="localTasksCounter" value="4" />
+     <servers />
+   </component>
+   <component name="TypeScriptGeneratedFilesManager">
+     <option name="version" value="3" />
+   </component>
+-  <component name="VcsManagerConfiguration">
+-    <MESSAGE value="Ajout d'un .gitignore" />
+-    <MESSAGE value="modification dans l'inscription" />
+-    <MESSAGE value="modification des formulaires investir et emprunter" />
+-    <option name="LAST_COMMIT_MESSAGE" value="modification des formulaires investir et emprunter" />
+-  </component>
+ </project>
+\ No newline at end of file
